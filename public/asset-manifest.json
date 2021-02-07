@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7f2a76c1.chunk.css",
+    "main.js": "/static/js/main.7f6d2b71.chunk.js",
+    "main.js.map": "/static/js/main.7f6d2b71.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9443b389.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9443b389.js.map",
+    "static/js/2.8d785167.chunk.js": "/static/js/2.8d785167.chunk.js",
+    "static/js/2.8d785167.chunk.js.map": "/static/js/2.8d785167.chunk.js.map",
+    "static/js/3.01b8cd17.chunk.js": "/static/js/3.01b8cd17.chunk.js",
+    "static/js/3.01b8cd17.chunk.js.map": "/static/js/3.01b8cd17.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.7f2a76c1.chunk.css.map": "/static/css/main.7f2a76c1.chunk.css.map",
+    "static/js/2.8d785167.chunk.js.LICENSE.txt": "/static/js/2.8d785167.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/pen.a086f758.svg",
+    "static/media/logo.a307e1c4.svg": "/static/media/logo.a307e1c4.svg",
+    "static/media/mesto_Russia.e56d73ba.svg": "/static/media/mesto_Russia.e56d73ba.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9443b389.js",
+    "static/js/2.8d785167.chunk.js",
+    "static/css/main.7f2a76c1.chunk.css",
+    "static/js/main.7f6d2b71.chunk.js"
+  ]
+}

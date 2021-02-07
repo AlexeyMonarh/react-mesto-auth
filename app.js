@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
 });
 
+app.use('/', express.static('public'));
 app.use(bodyParser.json());
 app.use((req, res, next) => {
   req.user = {
