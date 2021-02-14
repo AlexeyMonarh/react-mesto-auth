@@ -1,0 +1,8 @@
+.popup__inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_none {
+  display: none;
+}

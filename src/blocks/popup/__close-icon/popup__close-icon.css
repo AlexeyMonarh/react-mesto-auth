@@ -1,0 +1,19 @@
+.popup__close-icon {
+  padding: 0;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  border: none;
+  background: transparent;
+  background-image: url('../../../images/vector/close_icon.svg');
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  transition: opacity 200ms linear;
+  outline: none;
+}
+
+.popup__close-icon:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

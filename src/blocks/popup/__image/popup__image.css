@@ -1,0 +1,4 @@
+.popup__image {
+  block-size: inherit;
+  object-fit: cover;
+}

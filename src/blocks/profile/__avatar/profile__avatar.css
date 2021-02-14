@@ -1,0 +1,35 @@
+.profile__avatar-hover {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.profile__avatar-hover:hover::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0.8;
+}
+
+.profile__avatar-hover:hover::before {
+  content: "";
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  background-image: url("../../../images/vector/pen.svg");
+  z-index: 1;
+}

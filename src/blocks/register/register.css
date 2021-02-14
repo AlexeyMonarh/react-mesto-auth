@@ -1,0 +1,17 @@
+@import url('../register/__input/register__input.css');
+@import url('../register/__form/register__form.css');
+@import url('../register/__form/_mobile/register__form_mobile.css');
+@import url('../register/__span/register__span.css');
+@import url('../register/__span/_mobile/register__span_mobile.css');
+@import url('../register/__button/register__button.css');
+@import url('../register/__button/_mobile/register__button_mobile.css');
+
+.register {
+  margin: auto;
+  margin-top: 60px;
+  max-width: 358px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

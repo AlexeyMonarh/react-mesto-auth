@@ -1,0 +1,6 @@
+@media screen and (max-width: 320px) {
+  .popup__close-icon_mobile {
+    top: -50px;
+    right: 100px;
+  }
+  }

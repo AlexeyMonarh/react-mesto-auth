@@ -1,0 +1,9 @@
+@import url('../infoTool/__title/infoTool__title.css');
+@import url('../infoTool/__title/_mobile/infoTool__title_mobile.css');
+
+.infoTool {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}

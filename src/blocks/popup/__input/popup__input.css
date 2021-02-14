@@ -1,0 +1,16 @@
+.popup__input {
+  padding: 0;
+  outline: none;
+  min-height: 30px;
+  border: none;
+  border-bottom: 1px solid #00000033;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.21;
+  margin-bottom: 20px;
+}
+
+
+.popup__input-invalid {
+  border-bottom: 1px solid red;
+}

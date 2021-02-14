@@ -1,0 +1,33 @@
+ @import url('./__element/elements__element.css');
+ @import url('./__element-delete-button/elements__element-delete-button.css');
+ @import url('./__element-delete-button/elements__element-delete-button_hidden.css');
+ @import url('./__element-delete-button/elements__element-delete-button_visible.css');
+ @import url('./__element-img/elements__element-img.css');
+ @import url('./__element-description/elements__element-description.css');
+ @import url('./__element-title/elements__element-title.css');
+ @import url('./__element-like/elements__element-like.css');
+ @import url('./__element-like/elements__element-like_hidden.css');
+ @import url('./__element-like/elements__element-like_visible.css');
+ @import url('./__element-likes/elements__element-likes.css');
+ @import url('./__element-like-box/elements__element-like-box.css');
+
+ .elements {
+   margin: 0 auto;
+   list-style: none;
+   padding: 0;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-gap: 18px;
+ }
+
+ @media screen and (max-width: 910px) {
+  .elements {
+    grid-template-columns: repeat(2, 2fr);
+  }
+}
+
+@media screen and (max-width: 696px) {
+  .elements {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
