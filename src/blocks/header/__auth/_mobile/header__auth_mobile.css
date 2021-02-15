@@ -1,5 +1,9 @@
-@media screen and (max-width: 696px) {
 .header__auth_mobile {
-  margin-right: 27px; 
+  margin-right: 15px;
 }
+
+@media screen and (max-width: 767px) {
+  .header__auth_mobile {
+    margin-right: 0;
+  }
 }

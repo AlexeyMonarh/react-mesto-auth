@@ -30,7 +30,7 @@ export default function AddPlacePopup(props) {
       onSubmit={handleSubmit}
       name='add-element'
       title='Новое место'
-      button='Создать'
+      button={props.createPreload}
       inputs={
         <>
           <input type="text" className="popup__input popup__input-place" value={place || ''} onChange={inputPlace} placeholder="Название" name="name" required />

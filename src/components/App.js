@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { Route, Switch, Redirect, withRouter, useHistory } from "react-router-dom";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import succed from '../images/vector/succed.svg';
 import fail from '../images/vector/fail.svg';
 import Main from '../components/Main/Main';
@@ -14,7 +15,7 @@ import Register from '../components/Register/Register';
 import ProtectedRoute from '../components/ProtectedRoute/ProtectedRoute';
 import InfoTooltip from '../components/InfoTooltip/InfoTooltip';
 import api from '../utils/api';
-import * as projectAuth from './projectAuth';
+import * as projectAuth from '../utils/projectAuth';
 
 function App() {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -35,6 +36,8 @@ function App() {
     img: ''
   });
   const [registerPopup, setRegisterPopup] = useState();
+  const [savePreload, setSavePreload] = useState('Сохранить')
+  const [createPreload, setCreatePreload] = useState('Создать')
 
   const err = (res) => {
     console.log(`Ошибка: ${res}`);
@@ -52,9 +55,6 @@ function App() {
     const token = localStorage.getItem('jwt');
     if (token) {
       projectAuth.getContent(token).then((res) => {
-        if (!res || res.statusCode === 401) {
-          throw new Error('Переданный токен некорректен');
-        }
         if (res) {
           setUserData({ email: res.data.email });
         }
@@ -96,16 +96,14 @@ function App() {
 
   function handleRegister(data) {
     const { email, password } = data;
-    return projectAuth.register(email, password).then((res) => {
+    projectAuth.register(email, password).then((res) => {
       if (res) {
+        history.push('/sign-in');
         setRegisterPopup(true);
         setInfoTool({
           message: 'Вы успешно зарегистрировались!',
           img: succed
         })
-      }
-      if (!res || res.statusCode === 400) {
-        throw new Error('Некорректно заполнено одно из полей');
       }
     })
       .catch((err) => {
@@ -121,11 +119,9 @@ function App() {
   function handleLogin(data) {
     const { email, password } = data;
     setUserData({ email: email });
-    return projectAuth.authorize(email, password).then((res) => {
-      if (!res || res.statusCode === 400) {
-        throw new Error('Не передано одно из полей');
-      }
+    projectAuth.authorize(email, password).then((res) => {
       if (res.token) {
+        history.push('/')
         setLoggedIn(true);
         localStorage.setItem('jwt', res.token)
       }
@@ -140,10 +136,17 @@ function App() {
   }
 
   function handleAddPlaceSubmit(data) {
+    setCreatePreload('Создание...')
     api.createNewCard(data).then((res) => {
       setCards([res, ...cards]);
       closeAllPopups();
-    }).catch(err)
+    })
+      .catch(err)
+      .finally(() => {
+        setCreatePreload('Создать');
+        closeAllPopups();
+      }
+      )
   }
 
   function handleCardLike(card) {
@@ -168,19 +171,32 @@ function App() {
   }
 
   function handleUpdateAvatar(data) {
+    setSavePreload('Сохранение...')
     api.setAvatar(data)
       .then((res) => {
         setСurrentUser(res);
+      })
+      .catch(err)
+      .finally(() => {
+        setSavePreload('Сохранить');
         closeAllPopups();
-      }).catch(err)
+      }
+      )
   }
 
   function handleUpdateUser(data) {
+    setSavePreload('Сохранение...')
     api.setUserInfo(data.name, data.about)
       .then((res) => {
         setСurrentUser(res);
         closeAllPopups();
-      }).catch(err);
+      })
+      .catch(err)
+      .finally(() => {
+        setSavePreload('Сохранить');
+        closeAllPopups();
+      }
+      )
   }
 
   function handleDeleteCardClick() {
@@ -215,7 +231,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
-        
+
         <Switch>
           <ProtectedRoute
             exact
@@ -255,18 +271,21 @@ function App() {
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
+          savePreload={savePreload}
         />
 
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
+          savePreload={savePreload}
         />
 
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onCreateCard={handleAddPlaceSubmit}
+          createPreload={createPreload}
         />
 
         <RemoveCardPopup

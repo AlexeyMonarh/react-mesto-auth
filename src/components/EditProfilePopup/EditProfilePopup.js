@@ -35,7 +35,7 @@ export default function EditProfilePopup(props) {
       onSubmit={handleSubmit}
       name='edit-profile'
       title='Редактировать профиль'
-      button='Сохранить'
+      button={props.savePreload}
       inputs={
         <>
           <input type="text" className="popup__input popup__input-name" value={name || ''} onChange={inputName} placeholder="Имя" name="name" required />

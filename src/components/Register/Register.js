@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 
 function Register({ onRegister }) {
@@ -7,7 +7,6 @@ function Register({ onRegister }) {
     email: '',
     password: '',
   });
-  const [massage, setMassage] = useState('');
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -17,21 +16,16 @@ function Register({ onRegister }) {
     });
   }
 
-  const history = useHistory();
-
   function habdleSubmite(e) {
     e.preventDefault();
-    onRegister(inputValue)
-      .then(() => {
-        history.push('/sign-in')
-      }).catch((err) => {
-        setMassage(err.massage || 'Ошибка при регистрации')
-      });
+    onRegister(inputValue);
   }
 
   return (
     <div className="loginContainer">
-      <Header title="Вход" to="/sing-in" />
+      <div className="header_width">
+        <Header title="Вход" to="/sing-in" />
+      </div>
       <div className="register">
         <form action="#" className="popup__inputs register__form register__form_mobile" onSubmit={habdleSubmite}>
           <h2 className="popup__heading">Регистрация</h2>

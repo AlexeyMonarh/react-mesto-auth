@@ -19,7 +19,7 @@ export default function EditAvatarPopup(props) {
       onSubmit={handleSubmit}
       name='edit-avatar'
       title='Обновить аватар'
-      button='Сохранить'
+      button={props.savePreload}
       inputs={(
         <>
           <input type="url" ref={avaRef} className="popup__input popup__input-link" placeholder="Ссылка на новый аватар"
