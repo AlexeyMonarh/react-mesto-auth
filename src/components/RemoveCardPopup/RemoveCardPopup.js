@@ -3,8 +3,8 @@ import PopupWithForm from '../../components/PopupWithForm/PopupWithForm';
 
 export default function RemoveCardPopup(props) {
 
-  function handleDeleteClick() {
-    // console.log(props.currentId)
+  function handleDeleteClick(e) {
+    e.preventDefault();
     props.onCardDelete(props.currentId);
   }
 

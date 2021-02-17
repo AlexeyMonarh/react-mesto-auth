@@ -11,9 +11,8 @@ function Card(props) {
   const cardLikeButtonClassName = `elements__element-like ${isLiked ? 'elements__element-like_visible' : 'elements__element-like_hidden'}`;
 
   function setCardId() {
-    // props.setId(props._id);
-    // props.onPopupDelete();
-    props.handleCardDelete(props._id)
+    props.onPopupDelete();
+    props.setId(props._id);
   }
 
   function handleLikeClick() {

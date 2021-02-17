@@ -24,7 +24,7 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(false);
   const [currentUser, setСurrentUser] = useState("");
-  // const [currentId, setCurrentId] = useState("");
+  const [currentId, setCurrentId] = useState("");
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userData, setUserData] = useState({
@@ -157,12 +157,8 @@ function App() {
     }).catch(err)
   }
 
-  // function setId(card) {
-  //   setCurrentId(card)
-  // }
-
   function handleCardDelete(cardId) {
-    api.deleteCard(cardId).then(() => {
+    return api.deleteCard(cardId).then(() => {
       const newList = cards.filter((c) => c._id !== cardId);
       return setCards(newList);
     })
@@ -247,7 +243,7 @@ function App() {
             cards={cards}
             onCardLike={handleCardLike}
             onPopupDelete={handleDeleteCardClick}
-            // setId={setId}
+            setId={setCurrentId}
             handleCardDelete={handleCardDelete}
           />
           <Route path="/sign-in">
@@ -292,7 +288,7 @@ function App() {
           isOpen={isDeletePopupOpen}
           onClose={closeAllPopups}
           onCardDelete={handleCardDelete}
-        // currentId={currentId}
+          currentId={currentId}
         />
 
         <ImagePopup
